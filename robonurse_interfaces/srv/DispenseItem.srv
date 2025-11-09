@@ -1,0 +1,10 @@
+# robonurse_interfaces/srv/DispenseItem.srv
+# Service to trigger the dispensing mechanism
+
+# Request
+uint8 item_id    # 1: Medicine, 2: Drink, 3: Food
+int32 slot_id    # Specific slot/drawer number
+---
+# Response
+bool success
+string message

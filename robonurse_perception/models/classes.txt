@@ -1,0 +1,6 @@
+person
+nurse
+patient
+medicine
+cup
+wheelchair

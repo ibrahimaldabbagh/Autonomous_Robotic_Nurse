@@ -1,0 +1,15 @@
+camera_index: 0
+width: 640
+height: 480
+fps: 15
+
+# Set this to the path of your ONNX model
+model_path: "/home/youruser/robonurse_ws/src/robonurse_perception/models/robonurse_yolo.onnx"
+classes_path: "/home/youruser/robonurse_ws/src/robonurse_perception/models/classes.txt"
+
+conf_threshold: 0.25
+nms_threshold: 0.45
+input_size: 640
+use_cuda: true
+publish_image_raw: true
+publish_detections_json: true

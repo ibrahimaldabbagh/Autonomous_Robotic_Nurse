@@ -1,0 +1,23 @@
+# status mapping and thresholds
+# Map detection class -> patient status label
+status_map:
+  patient: "attentive"
+  nurse: "staff_present"
+  wheelchair: "needs_assist"
+  medicine: "med_nearby"
+  cup: "drink_nearby"
+
+# confidence thresholds
+class_conf_threshold: 0.3    # min detection score to consider
+aggregate_window_sec: 2.0    # time window to aggregate detections
+publish_min_interval: 0.5    # seconds between status publishes
+
+# smoothing (EMA alpha)
+smoothing_alpha: 0.6
+
+# mapping rules: priority ordered list of labels to pick if multiple present
+priority_order:
+  - "med_nearby"
+  - "needs_assist"
+  - "staff_present"
+  - "attentive"

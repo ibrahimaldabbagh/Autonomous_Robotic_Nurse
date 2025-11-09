@@ -1,0 +1,8 @@
+# Face recognition parameters
+model_path: "/home/youruser/robonurse_ws/src/robonurse_face_recognition/models/arcface.onnx"
+embedding_size: 512
+crop_size: 112
+match_threshold: 0.38  # cosine distance threshold (lower is more strict)
+db_path: "/home/youruser/robonurse_ws/src/robonurse_face_recognition/db/face_db.enc"
+key_path: "/home/youruser/robonurse_ws/src/robonurse_face_recognition/db/key.bin"
+use_cuda: true

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>robonurse_voice</name>
+  <version>0.0.0</version>
+  <description>Speech Recognition (ASR) and Text-to-Speech (TTS) nodes for RoboNurse (Runs on Jetson Nano).</description>
+  <maintainer email="eng.ibrahim.aldabbagh@gmail.com">Ibrahim Aldabbagh</maintainer>
+  <license>TODO: License declaration</license>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  
+  <exec_depend>python3-vosk</exec_depend>
+  <exec_depend>python3-pyaudio</exec_depend>
+  <exec_depend>python3-gtts</exec_depend> 
+  
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

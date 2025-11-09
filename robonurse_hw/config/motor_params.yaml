@@ -1,0 +1,11 @@
+# Motor and serial params
+serial_port: "/dev/ttyACM0"
+baudrate: 115200
+# robot params
+wheel_radius_m: 0.05
+wheel_base_m: 0.3
+track_width_m: 0.3
+encoder_ticks_per_rev: 1024
+max_linear_speed: 0.8   # m/s
+max_angular_speed: 2.0  # rad/s
+watchdog_timeout: 0.5   # seconds; stop motors if no cmd

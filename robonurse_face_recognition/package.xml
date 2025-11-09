@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robonurse_face_recognition</name>
+  <version>0.1.0</version>
+  <description>RoboNurse face recognition node: embeddings (ONNX) + encrypted DB + registrar</description>
+  <maintainer email="eng.ibrahim.aldabbagh@gmail.com">Ibrahim Aldabbagh</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>vision_msgs</depend>
+  <depend>cv_bridge</depend>
+  <exec_depend>onnxruntime</exec_depend>
+  <exec_depend>cryptography</exec_depend>
+  <exec_depend>numpy</exec_depend>
+  <exec_depend>opencv-python</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+</package>

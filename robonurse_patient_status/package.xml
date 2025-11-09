@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robonurse_patient_status</name>
+  <version>0.1.0</version>
+  <description>RoboNurse patient status node: converts detections -> patient status labels</description>
+  <maintainer email="eng.ibrahim.aldabbagh@gmail.com">Ibrahim Aldabbagh</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>vision_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <exec_depend>numpy</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+</package>
