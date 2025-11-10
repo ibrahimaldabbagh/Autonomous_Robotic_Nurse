@@ -61,6 +61,12 @@ Hospitals face increasing workloads and staff shortages. RoboNurse autonomously 
 
 **Goal**: Offload repetitive logistics to enable nursing staff to focus on direct clinical care.
 
+### Robot in Action
+
+<div align="center">
+<img src="images/motion.gif" alt="Robot Movement Demo" width="600"/>
+</div>
+
 ---
 
 ## 🌟 Key Features
@@ -369,8 +375,10 @@ ir_resume_distance: 0.5  # meters
 - Mission logs and history
 - Manual override controls
 
-<img src="images/OHMI2.png" alt="Operator HMI" width="600"/>
 
+<div align="center">
+<img src="images/OHMI2.png" alt="Operator HMI" width="600"/>
+</div>
 ---
 
 #### Patient HMI
@@ -383,8 +391,9 @@ ir_resume_distance: 0.5  # meters
 - Medication acceptance
 - Health instructions display
 
+<div align="center">
 <img src="images/PHMI1.png" alt="Patient HMI" width="600"/>
-
+</div>
 ---
 
 ### 🤖 Hardware Control
@@ -707,60 +716,16 @@ ament_lint_auto
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-### Workflow
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes with clear commit messages
-4. Add tests for new functionality
-5. Ensure all tests pass: `colcon test`
-6. Update documentation as needed
-7. Submit a Pull Request to `main`
-
-### Code Style
-- Follow ROS 2 conventions
-- Use `black` for Python formatting
-- Add docstrings to all public functions
-- Keep functions focused and modular
-
-### Documentation
-- Update package README files
-- Add inline comments for complex logic
-- Include launch file examples
-- Document new parameters and topics
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 👤 Author & Contact
 
 **Ibrahim Al Dabbagh**  
 📧 eng.ibrahim.aldabbagh@gmail.com
 
----
-
-## 🙏 Acknowledgements
-
-Special thanks to:
-- ROS 2 community for excellent tools and documentation
-- NVIDIA Jetson team for edge AI capabilities
-- Open-source contributors of YOLO, VOSK, and OpenCV
-- Healthcare professionals who provided clinical insights
 
 ---
 
 ## 📸 Gallery
 
-### Robot in Action
-![Robot Movement Demo](images/motion.gif)
 
 ### Operator Interface
 ![Operator HMI Screenshot](images/OHMI2.png)
