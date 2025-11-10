@@ -577,6 +577,11 @@ framerate: 30
 **Ibrahim Al Dabbagh**  
 📧 eng.ibrahim.aldabbagh@gmail.com
 
+> ⚠️ **Portfolio — Proprietary Notice**
+> 
+> This repository is part of my personal portfolio — **viewing only**.  
+> Do **not** copy, fork, modify, reuse, or redistribute any files without written permission.  
+> © 2025 Ibrahim Aldabbagh — **All rights reserved.**
 
 ---
 
@@ -587,3 +592,4 @@ framerate: 30
 *Built with ❤️ for safer, more efficient patient care*
 
 </div>
+
