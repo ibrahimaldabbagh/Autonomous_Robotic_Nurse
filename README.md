@@ -61,7 +61,7 @@ Hospitals face increasing workloads and staff shortages. RoboNurse autonomously 
 
 **Goal**: Offload repetitive logistics to enable nursing staff to focus on direct clinical care.
 
-### Robot in Action
+### 📸 Robot in Action
 
 <div align="center">
 <img src="images/motion.gif" alt="Robot Movement Demo" width="600"/>
@@ -526,150 +526,6 @@ framerate: 30
 
 **Communication**: USB serial with rosserial bridge
 
----
-
-### Hardware Checklist
-- ✅ Validate pin mappings in `.ino` files
-- ✅ Tune PID constants for your motors
-- ✅ Calibrate wheel radius and encoder ticks
-- ✅ Test watchdog and E-STOP in safe environment
-- ✅ Verify sensor ranges (IR, ultrasonic)
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- ROS 2 (Foxy/Galactic/Humble/Jazzy)
-- Python 3.8+
-- CUDA-capable GPU (for Jetson acceleration)
-- Arduino IDE (for firmware)
-
-### 1️⃣ Build Workspace
-```bash
-cd ~/robonurse_ws
-colcon build --symlink-install
-source install/setup.bash
-```
-
-### 2️⃣ Generate Encryption Key
-```bash
-python3 - <<'PY'
-from cryptography.fernet import Fernet
-import os
-os.makedirs('/var/robonurse/db', exist_ok=True)
-open('/var/robonurse/db/fernet.key', 'wb').write(Fernet.generate_key())
-print("✓ Key created at /var/robonurse/db/fernet.key")
-PY
-```
-
-### 3️⃣ Download Models
-Place ONNX models in `models/`:
-- `yolov5.onnx` (object detection)
-- `arcface.onnx` (face embeddings)
-- VOSK model (speech recognition)
-
-### 4️⃣ Launch Core System
-```bash
-# Terminal 1: Navigation
-ros2 launch robonurse_nav nav_bringup.launch.py \
-  map:=maps/hospital_floor2.yaml \
-  params:=config/nav2_params.yaml
-
-# Terminal 2: Perception
-ros2 run robonurse_perception perception_camera_node \
-  --ros-args \
-  -p model_path:=models/yolov5.onnx \
-  -p use_cuda:=true
-
-# Terminal 3: Face Recognition
-ros2 run robonurse_face_recognition face_recognition_node \
-  --ros-args \
-  -p model_path:=models/arcface.onnx \
-  -p db_path:=/var/robonurse/db/faces.enc \
-  -p key_path:=/var/robonurse/db/fernet.key
-
-# Terminal 4: Hardware
-ros2 run robonurse_hw motor_control_node \
-  --ros-args -p serial_port:=/dev/ttyACM0
-
-# Terminal 5: Video Stream
-ros2 run video_stream_node video_stream_node \
-  --ros-args --params-file config/video_stream_params.yaml
-```
-
-### 5️⃣ Register Patient Faces
-```bash
-python3 robonurse_face_recognition/register_face.py \
-  --image data/patients/ahmed_123.jpg \
-  --id patient_ahmed_123 \
-  --model models/arcface.onnx \
-  --db /var/robonurse/db/faces.enc \
-  --key /var/robonurse/db/fernet.key
-```
-
-### 6️⃣ Launch HMIs
-```bash
-# Operator HMI (React app)
-cd robonurse_hmi/operator
-npm install && npm start
-
-# Patient HMI (React app)
-cd robonurse_hmi/patient
-npm install && npm start
-```
-
-Ensure `rosbridge_server` is running for WebSocket communication.
-
----
-
-## 🛠️ Development Workflow
-
-### Testing Individual Nodes
-```bash
-# Mock camera input
-ros2 run image_publisher image_publisher_node path/to/test.jpg
-
-# Record test data
-ros2 bag record /camera/image_raw /people/detections /odom /cmd_vel
-
-# Playback for offline testing
-ros2 bag play test_mission_01.bag
-```
-
-### Simulation with Mock Serial
-```bash
-# Create virtual serial ports
-socat -d -d pty,raw,echo=0 pty,raw,echo=0
-
-# Connect nodes to virtual ports for testing without hardware
-```
-
-### Unit Tests
-```bash
-colcon test --packages-select robonurse_perception
-colcon test-result --verbose
-```
-
-### Generating Demo GIF
-```bash
-# Record video
-ros2 run image_view video_recorder image:=/camera/image_raw
-
-# Convert to GIF
-ffmpeg -i demo.mp4 -vf "fps=12,scale=640:-1:flags=lanczos" \
-  -loop 0 images/robot_motion.gif
-```
-
-### Code Quality
-```bash
-# Python linting
-flake8 robonurse_*/**/*.py
-black robonurse_*/**/*.py
-
-# ROS linting
-ament_lint_auto
-```
 
 ---
 
@@ -721,17 +577,6 @@ ament_lint_auto
 **Ibrahim Al Dabbagh**  
 📧 eng.ibrahim.aldabbagh@gmail.com
 
-
----
-
-## 📸 Gallery
-
-
-### Operator Interface
-![Operator HMI Screenshot](images/OHMI2.png)
-
-### Patient Interface
-![Patient HMI Screenshot](images/PHMI1.png)
 
 ---
 
